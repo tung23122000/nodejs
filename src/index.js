@@ -8,11 +8,13 @@ const hbs = expHbs.create({ extname: '.hbs' }); // cú pháp  gọi express-hand
 const app = express();
 const port = 3001;
 
+app.use(express.static(path.join(__dirname,'public')))
+
 //Http log
 app.use(morgan("combined"));
 
 //template engin
-app.set("view engine", "hbs"); // sử dụng hbs dể view app
+app.set('view engine', 'hbs'); // sử dụng hbs dể view app
 app.engine('hbs', hbs.engine); // gọi đến thu vien hbs HBS.engine và gán vào hbs
 app.set('views', path.join(__dirname, 'resources\\views')); // địa chỉ lấy ra theo cấu trúc truy cập (mọi thứ từ views)(layout/partials/ home)
 
