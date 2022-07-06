@@ -8,10 +8,18 @@ const hbs = expHbs.create({ extname: '.hbs' }); // cú pháp  gọi express-hand
 const app = express();
 const port = 3001;
 
+const route = require('./routes/index.js')
+
 app.use(express.static(path.join(__dirname,'public')))
 
+
+app.use(express.urlencoded({
+  extended: true
+}))// xử lý lưu dữ liệu từ from gửi lên server lưu trữ ở body
+app.use(express.json()) // xứ lý các trường hơp lưu trữ của file xml json ..
+
 //Http log
-app.use(morgan("combined"));
+// app.use(morgan("combined"));
 
 //template engin
 app.set('view engine', 'hbs'); // sử dụng hbs dể view app
@@ -20,11 +28,8 @@ app.set('views', path.join(__dirname, 'resources\\views')); // địa chỉ lấ
 
 // console.log('PATH:',path.join(__dirname,"resources\\views"));
 
-
-app.get('/', (req, res) => {
-  res.render('home');
-});
-
+//reoute init
+route(app);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
