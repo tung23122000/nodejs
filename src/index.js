@@ -15,7 +15,7 @@ const port = 3001;
 
 const route = require('./routes/index.js');
 
-app.use(express.static(path.join(__dirname, 'public')));    
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(
     express.urlencoded({
