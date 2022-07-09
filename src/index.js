@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
 // const handlebars = require('express-handlebars');
 const expHbs = require('express-handlebars'); // cú pháp  gọi express-handlebars
 const hbs = expHbs.create({ extname: '.hbs' }); // cú pháp  gọi express-handlebars và create thư viện gọi đến tên file .hbs đêt thực hiện

@@ -11,6 +11,8 @@ route.get('/:id/edit', productController.edit);
 
 route.put('/:id', productController.update);
 
+route.delete('/:id', productController.delete);
+
 route.get('/:slug', productController.show);
 
 module.exports = route;

@@ -37,9 +37,17 @@ class ProductController {
       )
       .catch(next);
   }
+
   //[PUT] /product/:id
   update(req, res, next) {
     Product.updateOne({ _id: req.params.id }, req.body)
+      .then(() => res.redirect("/me/stored/product"))
+      .catch(next);
+  }
+
+  //[DELETE] /product/:id
+  delete(req, res, next) {
+    Product.deleteOne({ _id: req.params.id }, req.body)
       .then(() => res.redirect("/me/stored/product"))
       .catch(next);
   }
